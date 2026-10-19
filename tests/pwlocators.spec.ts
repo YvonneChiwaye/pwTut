@@ -42,4 +42,28 @@ await expect(page.getByText("Welcome to our store")).toBeVisible(); // One Asser
 //page.getByRole() to locate by explicit and implicit accessibility attributes.
 // Locating by role(is not an attribute)
 //Role locatores include buttons, checkboxes, Links, lists, tables, and many more and follow the WAI-ARIA specifications.
+
+await page.getByRole("link",{name:'Register'}).click();
+await expect(page.getByRole("heading",{name:'Register'})).toBeVisible();// you can also use getByText() to locate the heading element. But getByRole() is preferred because it is more reliable and less prone to changes in the UI.
+
+//page.getByLabel() to locate a form control by associated label's text
+//When to use: Ideal for forms, where you want to locate an input field based on its label. It is more reliable than using getByText() or getByPlaceholder() because it is less prone to changes in the UI. 
+
+page.getByLabel('First name').fill("John");
+page.getByLabel('Last name').fill("Doe");
+page.getByLabel('Email').fill("John@Doe.com");
+
+//page.getByPlaceholder() to locate an input by placeholder.
+//When to use: Ideal for input fields that have a placeholder attribute. It is less reliable than other locators because placeholder text can change or be removed.
+
+//page.getByPlaceholder("Search store").fill("Apple Mac Book Pro");
+await expect(page.getByPlaceholder("Search store")).toHaveValue("Apple Mac Book Pro");
+
+//page.getByTitle() to locate an element by its title attribute.
+//When to use: Ideal for elements that have a title attribute. It is less reliable than other locators because title text can change or be removed.
+
+//page.getByTestId() to locate an element based on its data-testid attribute (other attributes
+//can be configured).
+
+
 })
