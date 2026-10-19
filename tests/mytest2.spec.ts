@@ -31,7 +31,7 @@ await page.goto("https://playwright.dev/");
 
 let url:string= await page.url();
 console.log("URL: " + url);  
-
+// Expect a title "to contain" a substring.
 await expect(page).toHaveURL(/playwright.dev/); // One Assertion per function. If there is more than one assertion in a test case, the test case will fail.
 
 
