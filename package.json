@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc --noEmit",
+    "prepare": "husky"
+  },
   "keywords": [],
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.63.0",
-    "@types/node": "^26.6.4"
+    "@types/node": "^26.6.4",
+    "husky": "^9.1.7",
+    "typescript": "^5.8.2"
   }
 }

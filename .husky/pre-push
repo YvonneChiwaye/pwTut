@@ -1,0 +1,2 @@
+chmod +x .husky/pre-push
+npx playwright test tests/pwlocators.spec.ts --project=chromium --headed
