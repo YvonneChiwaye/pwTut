@@ -31,4 +31,24 @@ for(let pt of productTitles){
     console.log("Product Title:", pt);
 }
 
+//4. start-with()
+const buildingProducts: Locator = page.locator("//h2/a[starts-with(@href,'/build')]"); //returns multiple elements
+const count: number = await buildingProducts.count();
+expect(count).toBeGreaterThan(0);
+console.log("Number of building products:", count);
+
+//5. text()
+const reglink:Locator = page.locator("//a[text()='Register']");
+await expect(reglink).toBeVisible();
+
+//6. last()
+const lastItem: Locator = page.locator("//div[@class='column follow-us']//li[last()]");
+await expect(lastItem).toBeVisible();
+console.log("Text content of last element:", await lastItem.textContent());
+
+//7. position()
+const positionItem: Locator = page.locator("//div[@class='column follow-us']//li[position()=3]");
+await expect(positionItem).toBeVisible();
+console.log("Text content of positioned element:", await positionItem.textContent());
+
 })
